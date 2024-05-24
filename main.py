@@ -49,6 +49,7 @@ def image():
         except Exception as e:
             print(f'Не удалось удалить файл {filename}: {e}')
 
+
     if form.validate_on_submit():
         filename = photos.save(form.photo.data)
         file_url = photos.url(filename)
@@ -65,3 +66,4 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 if __name__ == "__main__":
     app.run(debug=True)
+
