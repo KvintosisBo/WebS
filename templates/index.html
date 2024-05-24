@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+<title>Обработка изображений</title>
+<h1>Обработка изображений</h1>
+{% if polosa_image %}
+<h2>Полосатое изображение</h2>
+<image src="static/polosa_image.png"></image>
+{% endif %}
+
+{% if histogram_image %}
+<h2>Гистограмма изображения</h2>
+<img src="{{ histogram_image }}" alt="Гистограмма изображения">
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{ form.photo.label }} {{ form.photo }}
+    {{ form.submit }}
+
+    <div class="g-recaptcha" data-sitekey="6Lefn-YpAAAAADPW5RXEAYoeVHvJrD-UQIuoLem7"></div>
+
+</form>
+
+</body>
