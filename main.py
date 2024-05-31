@@ -1,6 +1,4 @@
 import os
-import flask
-import uvicorn
 from PIL import Image
 from flask import Flask, render_template, session
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
