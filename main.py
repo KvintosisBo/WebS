@@ -1,3 +1,4 @@
+from werkzeug import secure_filename, FileStorage
 import os
 import flask
 from PIL import Image
