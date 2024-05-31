@@ -5,5 +5,5 @@ matplotlib
 numpy
 Flask-WTF
 Flask-Uploads
-uvicorn
+gunicorn
 Werkzeug
