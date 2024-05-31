@@ -1,8 +1,7 @@
 import os
 import flask
-from matplotlib import pyplot as plt
 from PIL import Image
-from flask import Flask, render_template, redirect, url_for, session
+from flask import Flask, render_template, session
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
@@ -57,13 +56,12 @@ def image():
 
         file_path = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], filename)
         image = Image.open(file_path)
-        polosa_image = polosa(image, 10)
+        polosa_image = polosa(image, 10,False)
         polosa_image.save('static/polosa_image.png')
         histogram_image = graf(image)
 
     return render_template('index.html', form=form, polosa_image=polosa_image, histogram_image=histogram_image)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
+if __name__ == "main":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
