@@ -1,6 +1,6 @@
-from werkzeug import secure_filename, FileStorage
 import os
 import flask
+import uvicorn
 from PIL import Image
 from flask import Flask, render_template, session
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
@@ -64,5 +64,5 @@ def image():
     return render_template('index.html', form=form, polosa_image=polosa_image, histogram_image=histogram_image)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-if __name__ == "main":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+if __name__ == "__main__":
+       app.run()
